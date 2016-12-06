@@ -1,35 +1,17 @@
 import './polyfills.browser';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { NgModule, Component } from '@angular/core';
-import { AccountMgrComponent } from './accountmgr/accountmgr.component'
-import { AccountMgrService } from './accountmgr/accountmgr.service';
-import { CompanySelectorComponent } from './accountmgr/companyselector.component'
-import { UserSelectorComponent } from './accountmgr/userselector.component'
-import { UserComponent } from './accountmgr/user.component'
-
-@Component({
-  selector: 'app',
-  template:  `
-    <accountmgr></accountmgr>
-  `
-})
-class AppComponent{}
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app/app.component'
+import { AppModule } from './app/app.module'
 
 @NgModule({
-  bootstrap: [ AppComponent ],
-  declarations: [
-    AppComponent,
-    AccountMgrComponent,
-    CompanySelectorComponent,
-    UserSelectorComponent,
-    UserComponent
+  bootstrap: [
+  AppComponent
   ],
   imports: [
-    BrowserModule
-  ],
-  providers: [
-    AccountMgrService
+    BrowserModule,
+    AppModule
   ]
 })
 class MainModule {}
