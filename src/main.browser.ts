@@ -1,22 +1,37 @@
 import './polyfills.browser';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { NgModule, Component } from '@angular/core';
+import { AccountMgrComponent } from './accountmgr/accountmgr.component'
+import { AccountMgrService } from './accountmgr/accountmgr.service';
+import { CompanySelectorComponent } from './accountmgr/companyselector.component'
+import { UserSelectorComponent } from './accountmgr/userselector.component'
 
-export const platformRef = platformBrowserDynamic();
+@Component({
+  selector: 'app',
+  template:  `
+    <accountmgr></accountmgr>
+  `
+})
+class AppComponent{}
 
-export function main() {
-  return platformRef.bootstrapModule(AppModule)
-    .catch(err => console.error(err));
-}
+@NgModule({
+  bootstrap: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    AccountMgrComponent,
+    CompanySelectorComponent,
+    UserSelectorComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [
+    AccountMgrService
+  ]
+})
+class MainModule {}
 
-// support async tag or hmr
-switch (document.readyState) {
-  case 'interactive':
-  case 'complete':
-    main();
-    break;
-  case 'loading':
-  default:
-    document.addEventListener('DOMContentLoaded', () => main());
-}
+var platform= platformBrowserDynamic();
+
+platform.bootstrapModule(MainModule);
