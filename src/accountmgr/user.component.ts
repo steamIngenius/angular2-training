@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'user',
+  selector: 'user-data',
   template: `
   {{ JSON.stringify(user) }}
 

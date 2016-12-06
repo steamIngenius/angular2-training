@@ -3,11 +3,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'companyselector',
   template: `
-  <ul>
-      <li *ngFor="let item of companies" (click)="selectCompany(item)">
+  SELECT COMPANY:
+  <div style="padding:10px;" *ngFor="let item of companies" (click)="selectCompany(item)">
         {{ item }}
-      </li>
-  </ul>
+  </div>
+  <br>
 
   `
 

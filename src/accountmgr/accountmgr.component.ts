@@ -4,6 +4,7 @@ import { AccountMgrService } from './accountmgr.service';
 @Component({
   selector: 'accountmgr',
   template:  `
+
     <companyselector [companies]="currentCompanies()" (selectedCompany)="selectedCompany($event)">
 
     </companyselector>
@@ -11,8 +12,8 @@ import { AccountMgrService } from './accountmgr.service';
     <userselector [companyUsers]="companyUsers" (selectedUser)="selectedUser($event)">
     </userselector>
     <br>
-    <user [user]="currentUser">
-    </user>
+    <user-data [user]="currentUser">
+    </user-data>
 
   `
 })
