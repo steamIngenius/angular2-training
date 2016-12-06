@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   template: `
   <ul>
       <li *ngFor="let item of companyUsers" (click)="selectUser(item)">
-        {{ item }}
+        {{ item.name }}
       </li>
   </ul>
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AccountMgrService } from './accountmgr.service';
-import { CompanySelectorComponent } from './companyselector.component';
 
 @Component({
   selector: 'accountmgr',
@@ -9,16 +8,18 @@ import { CompanySelectorComponent } from './companyselector.component';
 
     </companyselector>
     <br>
-    <userselector [companyUsers]="companyUsers">
+    <userselector [companyUsers]="companyUsers" (selectedUser)="selectedUser($event)">
     </userselector>
+    <br>
+    <user [user]="currentUser">
+    </user>
 
   `
 })
 export class AccountMgrComponent {
   users = [];
   companyUsers = [];
-  currentCompany = [];
-  selectedUser= [];
+  currentUser: string;
 
   constructor (public accountmgrservice: AccountMgrService ) {
     this.users = accountmgrservice.getUsers();
@@ -36,6 +37,11 @@ export class AccountMgrComponent {
     this.companyUsers = this.users.filter(user => user.company === company);
     console.log(this.companyUsers);
 
+  }
+
+  selectedUser(user) {
+    console.log(user);
+    this.currentUser = user;
   }
 
 }

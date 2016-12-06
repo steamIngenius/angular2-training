@@ -6,6 +6,7 @@ import { AccountMgrComponent } from './accountmgr/accountmgr.component'
 import { AccountMgrService } from './accountmgr/accountmgr.service';
 import { CompanySelectorComponent } from './accountmgr/companyselector.component'
 import { UserSelectorComponent } from './accountmgr/userselector.component'
+import { UserComponent } from './accountmgr/user.component'
 
 @Component({
   selector: 'app',
@@ -21,7 +22,8 @@ class AppComponent{}
     AppComponent,
     AccountMgrComponent,
     CompanySelectorComponent,
-    UserSelectorComponent
+    UserSelectorComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule
