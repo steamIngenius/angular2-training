@@ -1,0 +1,8 @@
+<div>
+    <img [attr.src]="user.picture" alt="">
+    <div><input (keypress)="modifyUser()" value="{{ user.name }}" /></div>
+    <div><input (keypress)="modifyUser()" value="{{ user.age }}" /></div>
+    <div><input (keypress)="modifyUser()" value="{{ user.phone }}" /></div>
+    <button *ngIf="userModified" (click)="save()">save</button>
+    <button *ngIf="userModified" (click)="cancel()">cancel</button>
+</div>

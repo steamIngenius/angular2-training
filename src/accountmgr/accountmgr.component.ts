@@ -4,26 +4,35 @@ import { AccountMgrService } from './accountmgr.service';
 @Component({
   selector: 'accountmgr',
   template:  `
-
-    <companyselector [companies]="currentCompanies()" (selectedCompany)="selectedCompany($event)">
-
+    <companyselector 
+      [companies]="currentCompanies()" 
+      (selectedCompany)="selectedCompany($event)">
     </companyselector>
-    <br>
-    <userselector [companyUsers]="companyUsers" (selectedUser)="selectedUser($event)">
+    <userselector 
+      [companyUsers]="companyUsers" 
+      (selectedUser)="selectedUser($event)">
     </userselector>
     <br>
-    <user-data [user]="currentUser">
+    <user-data 
+      *ngIf="currentUser !== defaultUser" 
+      (saved)="saveUser($event)"
+      [user]="currentUser">
     </user-data>
-
   `
 })
 export class AccountMgrComponent {
   users = [];
   companyUsers = [];
-  currentUser: string;
+  currentUser: Object;
+  defaultUser = {
+    name: '',
+    age: '',
+    phone: ''
+  };
 
   constructor (public accountmgrservice: AccountMgrService ) {
     this.users = accountmgrservice.getUsers();
+    this.currentUser = this.defaultUser;
   }
 
   currentCompanies() {
@@ -36,8 +45,7 @@ export class AccountMgrComponent {
   selectedCompany(company) {
     console.log(company);
     this.companyUsers = this.users.filter(user => user.company === company);
-    console.log(this.companyUsers);
-
+    this.currentUser = this.defaultUser;
   }
 
   selectedUser(user) {
@@ -45,4 +53,7 @@ export class AccountMgrComponent {
     this.currentUser = user;
   }
 
+  saveUser(user) {
+    console.log(user.name, ' saved')
+  }
 }

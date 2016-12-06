@@ -4,8 +4,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'companyselector',
   template: `
   SELECT COMPANY:
-  <div style="padding:10px;" *ngFor="let item of companies" (click)="selectCompany(item)">
-        {{ item }}
+  <div style="padding:10px;">
+    <span *ngFor="let item of companies" (click)="selectCompany(item)">
+      {{ item }}
+    </span>
   </div>
   <br>
 
