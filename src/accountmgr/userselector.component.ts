@@ -6,6 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div *ngFor="let item of companyUsers" (click)="selectUser(item)">
       {{ item.name }}
     </div>
+
   `
 })
 export class UserSelectorComponent {
@@ -13,7 +14,12 @@ export class UserSelectorComponent {
   @Output() selectedUser = new EventEmitter();
 
   selectUser(user) {
-    this.selectedUser.emit(user)
+    this.selectedUser.emit(user);
   }
+
+  newUser() {
+    //
+  }
+
 
 }

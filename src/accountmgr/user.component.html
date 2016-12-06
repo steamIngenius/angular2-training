@@ -1,8 +1,15 @@
 <div>
     <img [attr.src]="user.picture" alt="">
-    <div><input (keypress)="modifyUser()" value="{{ user.name }}" /></div>
-    <div><input (keypress)="modifyUser()" value="{{ user.age }}" /></div>
-    <div><input (keypress)="modifyUser()" value="{{ user.phone }}" /></div>
+    <div>Name  <input (keyup)="modifyUser('name', $event.target.value)" value="{{ user.name }}" /></div>
+    <div>Age  <input (keyup)="modifyUser('age', $event.target.value)" value="{{ user.age }}" /></div>
+    <div>Phone  <input (keyup)="modifyUser('phone', $event.target.value)" value="{{ user.phone }}" /></div>
+    <div>Image URL  <input (keyup)="modifyUser('picture', $event.target.value)" value="{{ user.picture }}" /></div>
+    <div>email  <input (keyup)="modifyUser('email', $event.target.value)" value="{{ user.email }}" /></div>
+    <div>Address  <input (keyup)="modifyUser('address', $event.target.value)" value="{{ user.address }}" /></div>
+    <div>Greeting  <input (keyup)="modifyUser('greeting', $event.target.value)" value="{{ user.greeting }}" /></div>
+    <div>Gender  <input (keyup)="modifyUser('gender', $event.target.value)" value="{{ user.gender }}" /></div>
+    <div>Company  <input (keyup)="modifyUser('company', $event.target.value)" value="{{ user.company }}" /></div>
+    <div>Active?  <input (keyup)="modifyUser('isActive', $event.target.value)" value="{{ user.isActive }}" /></div>
     <button *ngIf="userModified" (click)="save()">save</button>
     <button *ngIf="userModified" (click)="cancel()">cancel</button>
 </div>

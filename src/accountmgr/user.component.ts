@@ -14,8 +14,10 @@ export class UserComponent {
     this.userModified = false;
   }
 
-  modifyUser() {
+  modifyUser(property, value) {
     this.userModified = true;
+    console.log('modifyUser: ' + property + ', ' + value);
+    this.user[property] = value;
   }
 
   save() {
@@ -25,5 +27,9 @@ export class UserComponent {
 
   cancel() {
     this.userModified = false;
+  }
+
+  deleteUser() {
+    //whatever
   }
 }

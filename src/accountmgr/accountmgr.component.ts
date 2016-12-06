@@ -4,20 +4,22 @@ import { AccountMgrService } from './accountmgr.service';
 @Component({
   selector: 'accountmgr',
   template:  `
-    <companyselector 
-      [companies]="currentCompanies()" 
+    <companyselector
+      [companies]="currentCompanies()"
       (selectedCompany)="selectedCompany($event)">
     </companyselector>
-    <userselector 
-      [companyUsers]="companyUsers" 
+    <userselector
+      [companyUsers]="companyUsers"
       (selectedUser)="selectedUser($event)">
     </userselector>
     <br>
-    <user-data 
-      *ngIf="currentUser !== defaultUser" 
+    <div [ngSwitch]="currentUser !== defaultUser">
+    <button *ngSwitchCase="false">New User</button>
+    <user-data *ngSwitchCase="true"
       (saved)="saveUser($event)"
       [user]="currentUser">
     </user-data>
+    </div>
   `
 })
 export class AccountMgrComponent {
@@ -27,7 +29,14 @@ export class AccountMgrComponent {
   defaultUser = {
     name: '',
     age: '',
-    phone: ''
+    phone: '',
+    picture: '',
+    email: '',
+    address: '',
+    greeting: '',
+    gender: '',
+    company: '',
+    isActive: true
   };
 
   constructor (public accountmgrservice: AccountMgrService ) {
@@ -54,6 +63,6 @@ export class AccountMgrComponent {
   }
 
   saveUser(user) {
-    console.log(user.name, ' saved')
+    console.log(user, ' saved')
   }
 }
