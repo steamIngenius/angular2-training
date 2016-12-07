@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { data } from '../data-json';
+import { data } from '../../data-json';
 
 @Injectable()
 export class AccountMgrService {

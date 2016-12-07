@@ -17,7 +17,8 @@ export class UserComponent {
   modifyUser(property, value) {
     this.userModified = true;
     console.log('modifyUser: ' + property + ', ' + value);
-    this.user[property] = value;
+    this.user = Object.assign({}, this.user, { [property] : value });
+
   }
 
   save() {

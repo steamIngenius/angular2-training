@@ -1,22 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AccountMgrComponent } from '../accountmgr/accountmgr.component'
-import { AccountMgrService } from '../accountmgr/accountmgr.service';
-import { CompanySelectorComponent } from '../accountmgr/companyselector.component'
-import { UserSelectorComponent } from '../accountmgr/userselector.component'
-import { UserComponent } from '../accountmgr/user.component'
-import { AppComponent } from './app.component'
+import { AccountMgrModule } from './accountmgr/accountmgr.module'
+import { AccountMgrService } from './accountmgr/accountmgr.service';
+import { AppComponent } from './app.component';
+import { UserModule } from './user/user.module'
+import { CompanyModule } from './company/company.module';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    AccountMgrModule,
+    UserModule,
+    CompanyModule
   ],
   declarations: [
-    AccountMgrComponent,
-    CompanySelectorComponent,
-    UserSelectorComponent,
-    UserComponent,
     AppComponent
   ],
   providers: [

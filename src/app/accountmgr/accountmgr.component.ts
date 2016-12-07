@@ -3,29 +3,15 @@ import { AccountMgrService } from './accountmgr.service';
 
 @Component({
   selector: 'accountmgr',
-  template:  `
-    <companyselector
-      [companies]="currentCompanies()"
-      (selectedCompany)="selectedCompany($event)">
-    </companyselector>
-    <userselector
-      [companyUsers]="companyUsers"
-      (selectedUser)="selectedUser($event)">
-    </userselector>
-    <br>
-    <div [ngSwitch]="currentUser !== defaultUser">
-    <button *ngSwitchCase="false">New User</button>
-    <user-data *ngSwitchCase="true"
-      (saved)="saveUser($event)"
-      [user]="currentUser">
-    </user-data>
-    </div>
-  `
+  templateUrl: './accountmgr.component.html'
 })
+
+
 export class AccountMgrComponent {
   users = [];
   companyUsers = [];
   currentUser: Object;
+  makingUser : Boolean = false;
   defaultUser = {
     name: '',
     age: '',
@@ -64,5 +50,10 @@ export class AccountMgrComponent {
 
   saveUser(user) {
     console.log(user, ' saved')
+  }
+
+  newUser() {
+    this.makingUser = true;
+    this.currentUser = this.defaultUser;
   }
 }

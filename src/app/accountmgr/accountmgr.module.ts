@@ -3,14 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AccountMgrComponent } from './accountmgr.component'
 import { AccountMgrService } from './accountmgr.service';
-import { CompanySelectorComponent } from './companyselector.component'
-import { UserSelectorComponent } from '../user/userselector.component'
+import { CompanyModule } from '../company/company.module'
+import { UserModule } from '../user/user.module'
+
 
 
 @NgModule({
-
-
-
+  imports: [
+    CommonModule,
+    UserModule,
+    CompanyModule
+  ],
+  declarations: [
+    AccountMgrComponent
+  ],
+  providers: [
+    AccountMgrService
+  ],
+  exports: [
+    AccountMgrComponent
+  ]
 })
 
 export class AccountMgrModule {}

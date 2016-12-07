@@ -1,0 +1,15 @@
+    <companyselector
+      [companies]="currentCompanies()"
+      (selectedCompany)="selectedCompany($event)">
+    </companyselector>
+    <userselector
+      [companyUsers]="companyUsers"
+      (selectedUser)="selectedUser($event)">
+    </userselector>
+    <br>
+
+    <user-data
+      (saved)="saveUser($event)"
+      [user]="currentUser">
+    </user-data>
+    <button (click)="newUser()">New User</button>
