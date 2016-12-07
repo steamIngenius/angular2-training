@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'userselector',
   template: `
+
     <div *ngFor="let item of companyUsers" (click)="selectUser(item)">
       {{ item.name }}
     </div>
