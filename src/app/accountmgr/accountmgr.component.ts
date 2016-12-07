@@ -32,7 +32,9 @@ export class AccountMgrComponent {
 
   currentCompanies() {
     return this.users.reduce((prev, cur) => {
-      prev.push(cur.company);
+      if (prev.indexOf(cur.company) === -1 ) {
+        prev.push(cur.company);
+    }
       return prev;
     }, [])
   }
