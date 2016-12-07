@@ -26,7 +26,7 @@ export class StoreService {
         return _state.value[property];
     }
     update(property: string, value: any) {
-        const newState: AppState = Object.assign(_state.value, { [property] : value });
+        const newState: AppState = Object.assign({}, _state.value, { [property] : value });
         _state.next(newState);
     }
 }
