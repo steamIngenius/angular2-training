@@ -1,16 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { SharedModule } from '../shared/shared.module';
 import { AccountMgrModule } from './accountmgr/accountmgr.module'
-import { AccountMgrService } from './accountmgr/accountmgr.service';
-import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module'
 import { CompanyModule } from './company/company.module';
 
+import { AppComponent } from './app.component';
+
+import { AccountMgrService } from './accountmgr/accountmgr.service';
+import { StoreService } from '../shared/store.service';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     AccountMgrModule,
     UserModule,
     CompanyModule
@@ -19,9 +21,9 @@ import { CompanyModule } from './company/company.module';
     AppComponent
   ],
   providers: [
-    AccountMgrService
+    AccountMgrService,
+    StoreService
   ]
-
 })
 
 export class AppModule {}

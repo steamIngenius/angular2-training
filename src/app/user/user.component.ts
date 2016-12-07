@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+import { User } from '../../shared/models';
+
 @Component({
   selector: 'user-data',
   templateUrl: 'user.component.html'
 })
-
-
 export class UserComponent {
-  @Input() user: Object;
+  @Input() user: User;
   @Output() saved = new EventEmitter();
   userModified: boolean;
   constructor() {
@@ -18,7 +18,6 @@ export class UserComponent {
     this.userModified = true;
     console.log('modifyUser: ' + property + ', ' + value);
     this.user = Object.assign({}, this.user, { [property] : value });
-
   }
 
   save() {

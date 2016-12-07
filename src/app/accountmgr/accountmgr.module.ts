@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { AccountMgrComponent } from './accountmgr.component'
@@ -10,7 +9,6 @@ import { UserModule } from '../user/user.module'
 
 @NgModule({
   imports: [
-    CommonModule,
     UserModule,
     CompanyModule
   ],
