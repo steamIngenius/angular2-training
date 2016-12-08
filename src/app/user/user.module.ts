@@ -1,20 +1,21 @@
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
 
-import { UserSelectorComponent } from './userselector.component'
+
 import { UserComponent } from './user.component'
+import { UserFormComponent} from './userform.component'
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule
   ],
   declarations: [
-    UserSelectorComponent,
-    UserComponent
+    UserComponent,
+    UserFormComponent
   ],
   exports: [
-    UserSelectorComponent,
-    UserComponent
+    UserComponent,
+    UserFormComponent
   ]
 })
 

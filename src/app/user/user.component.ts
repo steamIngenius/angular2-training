@@ -7,22 +7,22 @@ import { User } from '../../shared/models';
   templateUrl: 'user.component.html'
 })
 export class UserComponent {
-  @Input() user: User;
+  @Input() users: User[];
   @Output() saved = new EventEmitter();
   userModified: boolean;
   constructor() {
     this.userModified = false;
   }
 
-  modifyUser(property, value) {
-    this.userModified = true;
-    console.log('modifyUser: ' + property + ', ' + value);
-    this.user = Object.assign({}, this.user, { [property] : value });
-  }
+  // modifyUser(property, value) {
+  //   this.userModified = true;
+  //   console.log('modifyUser: ' + property + ', ' + value);
+  //   this.user = Object.assign({}, this.user, { [property] : value });
+  // }
 
   save() {
     this.userModified = false;
-    this.saved.emit(this.user);
+    this.saved.emit(this.users);
   }
 
   cancel() {

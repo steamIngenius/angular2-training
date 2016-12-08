@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 var modules = [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
 ];
 
 @NgModule({
@@ -13,7 +15,7 @@ var modules = [
     exports: [ ...modules ]
 })
 export class SharedModule {
-// code from instructors' example - we don't 
+// code from instructors' example - we don't
 // have a provider in here yet
 
 //   static withProviders (): ModuleWithProviders {

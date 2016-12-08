@@ -12,22 +12,9 @@ export class AccountMgrComponent {
   companyUsers = [];
   currentUser: Object;
   makingUser : Boolean = false;
-  defaultUser = {
-    name: '',
-    age: '',
-    phone: '',
-    picture: '',
-    email: '',
-    address: '',
-    greeting: '',
-    gender: '',
-    company: '',
-    isActive: true
-  };
 
   constructor (public accountmgrservice: AccountMgrService ) {
-    this.users = accountmgrservice.getUsers();
-    this.currentUser = this.defaultUser;
+    this.getUsers();
   }
 
   currentCompanies() {
@@ -42,7 +29,6 @@ export class AccountMgrComponent {
   selectedCompany(company) {
     console.log(company);
     this.companyUsers = this.users.filter(user => user.company === company);
-    this.currentUser = this.defaultUser;
   }
 
   selectedUser(user) {
@@ -56,6 +42,9 @@ export class AccountMgrComponent {
 
   newUser() {
     this.makingUser = true;
-    this.currentUser = this.defaultUser;
+  }
+
+  getUsers() {
+    this.users = this.accountmgrservice.getUsers();
   }
 }
