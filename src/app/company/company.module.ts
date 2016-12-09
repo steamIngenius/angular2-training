@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
 
 import { CompanySelectorComponent } from './companyselector.component'
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule
   ],
   declarations: [
     CompanySelectorComponent

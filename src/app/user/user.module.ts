@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 
 
 import { UserComponent } from './user.component'
-import { UserFormComponent} from './userform.component'
+import { UserFormComponent} from './user-form.component'
+
+const components = [
+  UserComponent,
+  UserFormComponent
+]
 
 @NgModule({
   imports: [
     SharedModule
   ],
   declarations: [
-    UserComponent,
-    UserFormComponent
+    ...components
   ],
   exports: [
-    UserComponent,
-    UserFormComponent
+    ...components
   ]
 })
 

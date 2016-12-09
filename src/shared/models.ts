@@ -1,4 +1,5 @@
 export class User {
+    _id: string;
     name: string;
     age: number;
     phone: string;
@@ -8,22 +9,24 @@ export class User {
     greeting: string;
     gender: string;
     company: string;
-    isActive: boolean
+    isActive: boolean;
 
-    constructor(user: User = defaultUser) {
+    static defaultUser = {
+        _id: '',
+        name: '',
+        age: 0,
+        phone: '',
+        picture: '',
+        email: '',
+        address: '',
+        greeting: '',
+        gender: '',
+        company: '',
+        isActive: true
+    }
+
+    constructor(user = User.defaultUser) {
         Object.assign(this, user);
     }
 }
 
-const defaultUser = {
-    name: '',
-    age: 0,
-    phone: '',
-    picture: '',
-    email: '',
-    address: '',
-    greeting: '',
-    gender: '',
-    company: '',
-    isActive: true
-}

@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { AccountMgrService } from './accountmgr.service';
 
+
 @Component({
   selector: 'accountmgr',
   templateUrl: './accountmgr.component.html'
 })
-
-
 export class AccountMgrComponent {
   users = [];
   companyUsers = [];
   currentUser: Object;
-  makingUser : Boolean = false;
 
   constructor (public accountmgrservice: AccountMgrService ) {
     this.getUsers();
@@ -21,13 +19,13 @@ export class AccountMgrComponent {
     return this.users.reduce((prev, cur) => {
       if (prev.indexOf(cur.company) === -1 ) {
         prev.push(cur.company);
-    }
+      }
       return prev;
     }, [])
   }
 
   selectedCompany(company) {
-    console.log(company);
+    console.log(company, ' selected.');
     this.companyUsers = this.users.filter(user => user.company === company);
   }
 
@@ -41,7 +39,7 @@ export class AccountMgrComponent {
   }
 
   newUser() {
-    this.makingUser = true;
+    console.log('fill out AccountMgrComponent.newUser()');
   }
 
   getUsers() {

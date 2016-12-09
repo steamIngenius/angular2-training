@@ -7,9 +7,17 @@ import { StoreService } from '../../shared/store.service';
 @Injectable()
 export class AccountMgrService {
   constructor(public store: StoreService) {
-    const userData = data.map(user => {
-      return new User(user);
+    const userData: User[] = data.map(user => {
+      const {
+        _id, name, age, phone, picture, email,
+        address, greeting, gender, company, isActive
+      } = user;
+      return new User({
+        _id, name, age, phone, picture, email,
+        address, greeting, gender, company, isActive
+      });
     });
+
     this.store.update('users', userData);
   }
 

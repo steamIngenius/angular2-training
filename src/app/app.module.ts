@@ -10,12 +10,16 @@ import { AppComponent } from './app.component';
 import { AccountMgrService } from './accountmgr/accountmgr.service';
 import { StoreService } from '../shared/store.service';
 
+const modules = [
+  SharedModule,
+  AccountMgrModule,
+  UserModule,
+  CompanyModule
+]
+
 @NgModule({
   imports: [
-    SharedModule,
-    AccountMgrModule,
-    UserModule,
-    CompanyModule
+    ...modules
   ],
   declarations: [
     AppComponent
@@ -23,6 +27,9 @@ import { StoreService } from '../shared/store.service';
   providers: [
     AccountMgrService,
     StoreService
+  ],
+  exports: [
+    ...modules
   ]
 })
 
