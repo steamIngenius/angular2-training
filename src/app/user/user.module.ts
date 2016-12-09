@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module'
 
-import { UserDataComponent } from './user-data.component';
-import { UserFormComponent } from './user-form.component';
+import { UserDataComponent } from './user-data/user-data.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 const components = [
   UserDataComponent,

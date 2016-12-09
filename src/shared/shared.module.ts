@@ -1,12 +1,14 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { StoreService } from './store.service';
 
 var modules = [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
 ];
 
 const providers = [
