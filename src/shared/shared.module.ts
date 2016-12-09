@@ -1,12 +1,16 @@
-import { NgModule } from '@angular/core';
-
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { StoreService } from './store.service';
 
 var modules = [
     CommonModule,
     ReactiveFormsModule
+];
+
+const providers = [
+    StoreService
 ];
 
 @NgModule({
@@ -15,18 +19,10 @@ var modules = [
     exports: [ ...modules ]
 })
 export class SharedModule {
-// code from instructors' example - we don't
-// have a provider in here yet
-
-//   static withProviders (): ModuleWithProviders {
-//     return {
-//       ngModule: SharedModule,
-//       providers
-//     }
-//   }
-
-// also this:
-// https://angular.io/docs/ts/latest/cookbook/ngmodule-faq.html#!#q-why-bad
-// and:
-// https://angular.io/docs/ts/latest/api/core/index/ModuleWithProviders-interface.html
+  static withProviders (): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers
+    }
+  }
 }

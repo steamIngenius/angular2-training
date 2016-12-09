@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { AccountMgrService } from './accountmgr.service';
 
+import { User, UserList } from '../../shared/models';
+
 
 @Component({
   selector: 'accountmgr',
   templateUrl: './accountmgr.component.html'
 })
 export class AccountMgrComponent {
-  users = [];
+  userList: UserList;
   companyUsers = [];
   currentUser: Object;
 
@@ -16,7 +18,7 @@ export class AccountMgrComponent {
   }
 
   currentCompanies() {
-    return this.users.reduce((prev, cur) => {
+    return this.userList.users.reduce((prev, cur) => {
       if (prev.indexOf(cur.company) === -1 ) {
         prev.push(cur.company);
       }
@@ -26,7 +28,7 @@ export class AccountMgrComponent {
 
   selectedCompany(company) {
     console.log(company, ' selected.');
-    this.companyUsers = this.users.filter(user => user.company === company);
+    this.companyUsers = this.userList.users.filter(user => user.company === company);
   }
 
   selectedUser(user) {
@@ -43,6 +45,6 @@ export class AccountMgrComponent {
   }
 
   getUsers() {
-    this.users = this.accountmgrservice.getUsers();
+    this.userList = this.accountmgrservice.getUsers();
   }
 }

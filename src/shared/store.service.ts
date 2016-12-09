@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { User } from './models';
+import { User, UserList } from './models';
 
 export interface AppState {
-    users: User[]
+    users: UserList
 };
 const _defaultState: AppState = {
-    users: []
+    users: new UserList([User.defaultUser])
 };
 let _state = new BehaviorSubject(_defaultState);
 

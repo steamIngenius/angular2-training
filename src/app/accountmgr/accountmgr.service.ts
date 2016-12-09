@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { data } from '../../data-json';
-import { User } from '../../shared/models';
+import { User, UserList } from '../../shared/models';
 import { StoreService } from '../../shared/store.service';
 
 @Injectable()
 export class AccountMgrService {
   constructor(public store: StoreService) {
-    const userData: User[] = data.map(user => {
+    const userData: UserList = new UserList(data.map(user => {
       const {
         _id, name, age, phone, picture, email,
         address, greeting, gender, company, isActive
@@ -16,12 +16,12 @@ export class AccountMgrService {
         _id, name, age, phone, picture, email,
         address, greeting, gender, company, isActive
       });
-    });
+    }));
 
     this.store.update('users', userData);
   }
 
-  getUsers() {
+  getUsers(): UserList {
     return this.store.get('users');
   }
 

@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { User } from '../../shared/models';
+import { User, UserList } from '../../shared/models';
 
 @Component({
   selector: 'user-data',
   templateUrl: 'user.component.html'
 })
 export class UserComponent {
-  @Input() users: User[];
+  @Input() users: UserList;
   @Output() saved = new EventEmitter();
   userModified: boolean;
   constructor() {

@@ -30,3 +30,17 @@ export class User {
     }
 }
 
+export class UserList {
+    users: User[];
+    defaultUsers: User[];
+    constructor(users?: User[]) {
+        this.defaultUsers = [
+            new User()
+        ];
+        this.users = users || this.defaultUsers;
+    }
+}
+
+export class CompanyList {
+    constructor(public companies: String[]) {}
+}

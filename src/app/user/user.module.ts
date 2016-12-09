@@ -1,14 +1,14 @@
-import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../../shared/shared.module'
 
-
-import { UserComponent } from './user.component'
-import { UserFormComponent} from './user-form.component'
+import { UserComponent } from './user.component';
+import { UserFormComponent } from './user-form.component';
 
 const components = [
   UserComponent,
   UserFormComponent
-]
+];
+
 
 @NgModule({
   imports: [
@@ -21,5 +21,4 @@ const components = [
     ...components
   ]
 })
-
-export class UserModule {}
+export class UserModule { }
