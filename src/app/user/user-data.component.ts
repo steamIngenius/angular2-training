@@ -4,9 +4,9 @@ import { User, UserList } from '../../shared/models';
 
 @Component({
   selector: 'user-data',
-  templateUrl: 'user.component.html'
+  templateUrl: 'user-data.component.html'
 })
-export class UserComponent {
+export class UserDataComponent {
   @Input() users: UserList;
   @Output() saved = new EventEmitter();
   userModified: boolean;
