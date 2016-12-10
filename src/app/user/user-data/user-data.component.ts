@@ -24,6 +24,10 @@ export class UserDataComponent {
         // debugger; // data = UserList
       });
   }
+
+  imageUrl(url) {
+    return url + '?ver=' + Math.random();
+  }
   // modifyUser(property, value) {
   //   this.userModified = true;
   //   console.log('modifyUser: ' + property + ', ' + value);
