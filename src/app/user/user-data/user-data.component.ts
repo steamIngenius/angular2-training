@@ -1,19 +1,29 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { User, UserList } from '../../../shared/models';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'user-data',
   templateUrl: 'user-data.component.html'
 })
 export class UserDataComponent {
-  @Input() users: UserList;
-  @Output() saved = new EventEmitter();
+  users: UserList;
   userModified: boolean;
-  constructor() {
+  constructor(private userService: UserService) {
     this.userModified = false;
+    // this.users = new UserList();
+    this.subscribeToUserData();
   }
 
+  subscribeToUserData() {
+    this.userService.getChanges()
+      .subscribe(data => {
+        console.log(data)
+        this.users = data.userData;
+        // debugger; // data = UserList
+      });
+  }
   // modifyUser(property, value) {
   //   this.userModified = true;
   //   console.log('modifyUser: ' + property + ', ' + value);
@@ -22,7 +32,6 @@ export class UserDataComponent {
 
   save() {
     this.userModified = false;
-    this.saved.emit(this.users);
   }
 
   cancel() {

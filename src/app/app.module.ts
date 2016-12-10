@@ -11,15 +11,16 @@ import { AccountMgrService } from './accountmgr/accountmgr.service';
 import { StoreService } from '../shared/store.service';
 
 const modules = [
-  SharedModule,
   AccountMgrModule,
   UserModule,
   CompanyModule
-]
+];
+
 
 @NgModule({
   imports: [
-    ...modules
+    ...modules,
+    SharedModule.withProviders()
   ],
   declarations: [
     AppComponent
@@ -32,5 +33,4 @@ const modules = [
     ...modules
   ]
 })
-
-export class AppModule {}
+export class AppModule { }
