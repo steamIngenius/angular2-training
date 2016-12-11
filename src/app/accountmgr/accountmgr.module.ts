@@ -5,6 +5,9 @@ import { AccountMgrService } from './accountmgr.service';
 import { CompanyModule } from '../company/company.module'
 import { UserModule } from '../user/user.module'
 
+const components = [
+  AccountMgrComponent
+];
 
 
 @NgModule({
@@ -19,7 +22,7 @@ import { UserModule } from '../user/user.module'
     AccountMgrService
   ],
   exports: [
-    AccountMgrComponent
+    ...components
   ]
 })
 
