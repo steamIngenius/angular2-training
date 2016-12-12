@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 
-import { CompanySelectorComponent } from './companyselector.component'
+import { CompanyService } from './company.service';
+import { CompanySelectorComponent } from './companyselector.component';
+
 
 @NgModule({
   imports: [ SharedModule ],
@@ -10,7 +12,9 @@ import { CompanySelectorComponent } from './companyselector.component'
   ],
   exports: [
     CompanySelectorComponent
+  ],
+  providers: [
+    CompanyService
   ]
 })
-
-export class CompanyModule{}
+export class CompanyModule { }

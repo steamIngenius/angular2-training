@@ -12,37 +12,31 @@ export class UserDataComponent {
   userModified: boolean;
   constructor(private userService: UserService) {
     this.userModified = false;
-    // this.users = new UserList();
     this.subscribeToUserData();
   }
 
   subscribeToUserData() {
-    this.userService.getChanges()
+    this.userService.getUserChanges()
       .subscribe(data => {
         console.log(data)
         this.users = data.userData;
-        // debugger; // data = UserList
       });
   }
 
   imageUrl(url) {
     return url + '?ver=' + Math.random();
   }
+
   // modifyUser(property, value) {
   //   this.userModified = true;
   //   console.log('modifyUser: ' + property + ', ' + value);
   //   this.user = Object.assign({}, this.user, { [property] : value });
   // }
 
-  save() {
-    this.userModified = false;
+  editUser () {
+    console.log('Implement u a edit feature.');
   }
-
-  cancel() {
-    this.userModified = false;
-  }
-
   deleteUser() {
-    //whatever
+    // whatever
   }
 }

@@ -11,7 +11,6 @@ import { User, UserList } from '../../shared/models';
         {{ item }}
       </button>
     </div>
-    <br>
   `
 })
 export class CompanySelectorComponent { 
@@ -25,7 +24,7 @@ export class CompanySelectorComponent {
   }
 
   subscribeToCompanyData() {
-    this.userService.getChanges()
+    this.userService.getUserChanges()
       .subscribe(data => {
         console.log(data)
         const { users } = data.userData;
@@ -35,7 +34,6 @@ export class CompanySelectorComponent {
           }
           return prev;
         }, []);
-        // debugger; // data = UserList
       });
   }
 }

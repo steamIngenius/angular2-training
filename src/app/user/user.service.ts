@@ -39,7 +39,7 @@ export class UserService {
     return this.store.get('users');
   }
 
-  getChanges() {
+  getUserChanges() {
     return this.store.changes.filter(state => Boolean(state['userData']));
   }
 }
